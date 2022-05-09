@@ -1,48 +1,24 @@
-import { useEffect, useState } from "react";
+// import {ReactComponent as Divider} from  '../images/pattern-divider-mobile.svg'
+// import {ReactComponent as Divide} from  '../images/pattern-divider-desktop.svg'
+import smallPic from  '../images/pattern-divider-mobile.svg'
+import bigPic from  '../images/pattern-divider-desktop.svg' 
 
-export default function Advice() {
-  const [randomAdvice, setRandomAdvice] = useState({
-      advice: "When painting a room, preparation is key. The actual painting should account for about 40% of the work."
-    });
-
+export default function Advice({randomAdvice, getRandomAdvice,adviceId,setAdviceId}) {
   
-    
-
-  useEffect(() => {
-    fetch("https://api.adviceslip.com/advice")
-      .then((res) => res.json())
-      .then(data => setRandomAdvice(data.slip))
-  }, [])
-
 
   return (
-    <div>
-      <h1>{randomAdvice.advice}</h1>
+    <div className="Advice">
+      <h1>Advice #{adviceId}</h1>
+      <h2 key={adviceId}>"{randomAdvice}"</h2>
+      <div className='Advice--divider'>
+        {/* <Divider /> */}
+        <picture>
+          <source media="(max-width: 768px)" srcSet={smallPic} />
+          <img src={bigPic} alt="" />
+        </picture>
+      </div>
     </div>
   )
 
 }
 
-
-
-// .then(
-//   (result) => {
-//     setIsLoaded(true);
-//     setRandomAdvice(result.slip.advice);
-//   },
-//   (error) => {
-//     setIsLoaded(true);
-//     setError(error);
-//   }
-// );
-// }, []);
-
-// if (error) {
-// return <div>Error: {error.message}</div>;
-// }else if (isLoaded){
-// return <div>Loading...</div>
-// }else{
-// return (
-// <p key={slice.id}>{slice.advice}</p>
-// )
-// }
