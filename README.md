@@ -10,8 +10,8 @@ Live link : https://advice-generator-mauve.vercel.app/
 
 ### Built with
 
-Reactjs : [React documentation](https://reactjs.org/)
-Vercel : [Vercel documentation](https://vercel.com/)
+- Reactjs : [React documentation](https://reactjs.org/)
+- Vercel : [Vercel documentation](https://vercel.com/)
 
 ###  How to Use
 
